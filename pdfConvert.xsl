@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+  <!-- Writer : vatcharavaree.won --> 
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="xml" indent="yes"/>
     
+      <!-- Set variable name acm_template to read the xml file name results-old --> 
     <xsl:variable name="acm_template" select="document('results-old.xml')" />
     <xsl:key name="resultInfo" match="contestStandings/teamStanding" use="lower-case(@teamName)" />
     
     <xsl:template match="/">
         <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
-            
+              <!-- Set A4 Paper Layout --> 
             <fo:layout-master-set>
                 <fo:simple-page-master master-name="A4"
                     page-height="11.7in"  page-width="8.3in" margin-top=".5in" 
@@ -19,6 +21,7 @@
             </fo:layout-master-set>
             <!-- Table Contents -->      
             <fo:page-sequence master-reference="A4">
+                  
                 <fo:static-content flow-name="xsl-region-after">
                     <fo:block>
                         <fo:leader leader-pattern="rule" leader-length="18cm" text-align="center"/>
